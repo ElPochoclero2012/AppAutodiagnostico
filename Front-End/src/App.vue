@@ -4,11 +4,29 @@
     </div>
 </template>
 
+<script src="./src/resources/notificationConfig.js"></script>
+<script src="./src/resources/notificationConfirmation.js"></script>
+<script src="./src/resources/notificationList.js"></script>
+<script src="https://js.pusher.com/beams/1.0/push-notifications-cdn.js"></script>
+
 <script>
+  const beamsClient = new PusherPushNotifications.Client({
+    instanceId: '8f1649b4-9b49-4f0a-b12b-f7f6548622a4',
+  });
+
+  beamsClient.start()
+    .then(() => beamsClient.addDeviceInterest('hello'))
+    .then(() => console.log('Successfully registered and subscribed!'))
+    .catch(console.error);
+</script>
+
+<script>
+
 export default {
     name: "App",
 };
 </script>
+
 
 <style>
 #app {
