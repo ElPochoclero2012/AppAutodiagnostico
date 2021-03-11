@@ -18,4 +18,15 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+
+    function recibirdatos()
+    {
+        $response = $this->get('/datos/juancito');
+
+        $response->assertStatus(200);
+
+        $response->assertSee('Nombre: Juancito');
+    }
+
 }
